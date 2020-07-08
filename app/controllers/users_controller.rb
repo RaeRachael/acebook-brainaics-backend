@@ -4,7 +4,7 @@ class UsersController < Clearance::BaseController
 
   def index
     @users = User.all
-    data = {"current_user" => current_user}# "user_list" => @users }
+    data = {:user_list => @users}
     render json: data
   end
 
