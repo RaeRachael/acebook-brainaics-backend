@@ -8,8 +8,11 @@ class WallController < ApplicationController
   end
 
   def show
-    @username = User.find(params[:id]).username
+    @current_user = current_user
+    @user_wall = User.find(params[:id])
     @posts = Post.where("wall_id = ?", params[:id]).sort_by{ |post| post[:created_at] }.reverse
+    data = { "current_user" => @current_user, "posts" => @posts,"wall_id" => @user_wall }
+    render json: data
   end
 
 end

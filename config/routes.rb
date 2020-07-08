@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :wall
   root to: 'sessions#new'
+
+  scope '/api/v1' do
+    resources :wall
+  end
 end

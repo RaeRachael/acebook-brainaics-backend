@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem bootstrap for CSS
 gem 'bootstrap', '~> 4.4.1'
 
+
 gem 'clearance'
 
 # Use Capistrano for deployment
