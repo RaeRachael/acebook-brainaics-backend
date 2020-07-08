@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   scope '/api/v1' do
     resources :wall
+    get "/users" => 'users#index'
   end
 end
