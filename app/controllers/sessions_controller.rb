@@ -7,10 +7,10 @@ class SessionsController < Clearance::BaseController
 
       sign_in(@user) do |status|
         if status.success?
-          redirect_back_or url_after_create
+          render json: @user
         else
           flash.now.alert = status.failure_message
-          render template: "sessions/new", status: :unauthorized
+          render json: @user
         end
       end
     end

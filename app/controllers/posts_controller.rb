@@ -4,7 +4,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to wall_url(params[:id] = @post.wall_id)
+    if @post.save
+      render json: @post
+    else
+      render json: @post.errors
+    end
+    # redirect_to wall_url(params[:id] = @post.wall_id)
   end
 
   def edit
