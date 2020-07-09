@@ -11,8 +11,14 @@ class WallController < ApplicationController
     @current_user = current_user
     @user_wall = User.find(params[:id])
     @posts = Post.where("wall_id = ?", params[:id]).sort_by{ |post| post[:created_at] }.reverse
-    data = { "current_user" => @current_user, "posts" => @posts,"wall_id" => @user_wall }
+    data = { "posts" => @posts }
     render json: data
   end
 
+  def index
+    @posts = Post.all.sort_by{ |post| post[:created_at] }.reverse
+    data = { "posts" => @posts }
+    render json: data
+  end
+  
 end
